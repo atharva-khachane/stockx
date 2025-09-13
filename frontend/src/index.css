@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link{
+  margin-left: 40px;
+  
+}
+
+.icons-trans {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.icons-trans:hover {
+  opacity: 1;
+}
