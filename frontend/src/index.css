@@ -24,3 +24,8 @@ code {
 .icons-trans:hover {
   opacity: 1;
 }
+
+#support-hero {
+  background-color: rgb(56,126,209);
+  padding: 0px 115px;
+} 
