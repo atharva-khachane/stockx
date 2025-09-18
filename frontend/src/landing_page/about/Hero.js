@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function Hero() {
     return ( 
         <div className="container p-5">
-            <div class="row text-center p-5 mb-5">
+            <div className="row text-center p-5 mb-5">
                 <h1 className='fs-4 pt-3'>We pioneered the discount broking model in India.<br/>Now, we are breaking ground with our technology.</h1>
             </div>
             <div className="row p-5 mt-5 border-top text-justify text-muted" style={{fontSize: '.9em',fontFamily: 'Sora, sans-serif', lineHeight: '1.8'}}>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function Team() {
     return ( 
         <div className="container pt-5 border-top">
-            <div class="row text-center">
+            <div className="row text-center">
                 <h1 className='fs-4'>People</h1>
             </div>
             <div className="row p-5  text-justify text-muted" style={{fontSize: '.9em',fontFamily: 'Sora, sans-serif', lineHeight: '1.8'}}>
