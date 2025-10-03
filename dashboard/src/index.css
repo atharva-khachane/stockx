@@ -655,7 +655,7 @@ hr {
   padding: 15px 20px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: rgb(241, 241, 241);
+  color: rgb(0, 0, 0);
   border-bottom: 0.8px solid rgb(235, 234, 234);
 }
 
@@ -708,10 +708,15 @@ hr {
   flex: 2;
 }
 
-.item-info span:nth-child(3) {
-  color: rgb(223, 73, 73);
-  flex: 1;
+/* instead of nth-child(3) */
+.item-info span:first-of-type {
+  /* styles for price only */
+  color: #494949;
 }
+
+/* keep percent colors */
+.item-info .percent.up   { color: #16a34a; }  /* green */
+.item-info .percent.down { color: #ef4444; }  /* red   */
 
 .actions {
   position: absolute;
@@ -724,13 +729,12 @@ hr {
   display: none;
 }
 
-.actions span button {
-  width: 40px;
-  height: 30px;
+.actions button {
   border-radius: 4px;
   text-align: center;
   margin-right: 8px;
   cursor: pointer;
+  padding: 6px 8px;
 }
 
 .buy {
@@ -844,3 +848,64 @@ hr {
 
 
 
+.order-table td.loss {
+  font-size: 0.9rem !important;
+}
+
+
+/* 1) Make the watchlist pane the positioning context */
+.watchlist-container { position: relative; }
+
+/* 2) Constrain the resizer handle to a narrow strip on the edge */
+.resizer,
+.splitter,
+.react-resizable-handle {            /* use whichever class your handle has */
+  position: absolute;
+  right: -4px;                       /* sit on the divider edge */
+  top: 0;
+  width: 8px;                        /* small hitbox, not the whole pane */
+  height: 100%;
+  cursor: col-resize;                /* resize cursor ONLY here */
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* 3) Any overlay covering the pane should NOT capture the cursor */
+.resizer-overlay,
+.splitter-overlay {
+  pointer-events: none;              /* let mouse go “through” overlay */
+}
+
+/* 4) Force default cursor on the watchlist pane, but allow children to override it */
+.watchlist-container {
+  cursor: default;
+}
+
+/* 1) Make the watchlist pane the positioning context */
+.watchlist-container { position: relative; }
+
+/* 2) Constrain the resizer handle to a narrow strip on the edge */
+.resizer,
+.splitter,
+.react-resizable-handle {            /* use whichever class your handle has */
+  position: absolute;
+  right: -4px;                       /* sit on the divider edge */
+  top: 0;
+  width: 8px;                        /* small hitbox, not the whole pane */
+  height: 100%;
+  cursor: col-resize;                /* resize cursor ONLY here */
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* 3) Any overlay covering the pane should NOT capture the cursor */
+.resizer-overlay,
+.splitter-overlay {
+  pointer-events: none;              /* let mouse go “through” overlay */
+}
+
+/* 4) Force normal cursor everywhere else in the watchlist */
+.watchlist-container,
+.watchlist-container *:not(.resizer):not(.splitter):not(.react-resizable-handle) {
+  cursor: default !important;
+}
